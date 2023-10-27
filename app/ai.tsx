@@ -45,7 +45,7 @@ export default function AI() {
       <DareScare setSelectedOption={handleClick} />
       {isLoading && (
         <div className='mt-9 text-center'>
-          Loading... Give it a few seconds, service isn't too good here. 👻
+          Loading... Give it a few seconds, service isn&apos;t too good here. 👻
         </div>
       )}
 
