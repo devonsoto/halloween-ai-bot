@@ -6,10 +6,10 @@ type DareScareProps = {
 
 const DareScare = ({ setSelectedOption }: DareScareProps) => {
   return (
-    <div className='flex justify-center w-full flex-col'>
+    <div className='flex justify-center w-full flex-col items-center text-bloodRed'>
       <div className='mb-6'>
         <button
-          className='hover:bg-red-700 text-white font-bold py-2 px-4 rounded bg-pumpkinBlood mr-6'
+          className='hover:bg-red-700  font-bold py-2 px-4 rounded bg-pumpkinBlood mr-6'
           onClick={() => {
             setSelectedOption('Dare');
           }}
@@ -17,7 +17,7 @@ const DareScare = ({ setSelectedOption }: DareScareProps) => {
           Dare
         </button>
         <button
-          className='hover:bg-red-700 text-white font-bold py-2 px-4 rounded bg-pumpkinBlood'
+          className='hover:bg-red-700  font-bold py-2 px-4 rounded bg-pumpkinBlood'
           onClick={() => {
             setSelectedOption('Scare');
           }}
@@ -27,9 +27,9 @@ const DareScare = ({ setSelectedOption }: DareScareProps) => {
       </div>
       <div>
         <button
-          className='hover:bg-red-700 text-white font-bold py-2 px-4 rounded bg-pumpkinBlood'
+          className='hover:bg-red-700  font-bold py-2 px-4 rounded bg-pumpkinBlood mb-6'
           onClick={() => {
-            setSelectedOption('Scare');
+            setSelectedOption('Mystery');
           }}
         >
           Mystery

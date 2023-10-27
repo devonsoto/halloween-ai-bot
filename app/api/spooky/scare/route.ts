@@ -1,19 +1,27 @@
 import { NextResponse } from 'next/server';
-import { OpenAI } from 'langchain/llms/openai';
+import { OpenAI } from 'openai';
+import { OpenAI as langchainOpenAI } from 'langchain/llms/openai';
 
-export const GET = async (req: Request, res: Response) => {
-  const openai = new OpenAI({ temperature: 0.7, modelName: 'gpt-3.5-turbo' });
+export const POST = async (req: Request, res: Response) => {
+  const openai = new OpenAI();
+  const textOpenAI = new langchainOpenAI({
+    temperature: 0.8,
+    modelName: 'gpt-3.5-turbo',
+  });
 
-  console.log(req, res);
-
-  console.log(req.body);
-
-  const template =
-    'You are a Spooky AI on Halloween night. We are in a bar downtown. Give a dare that is spooky, awesome, and fun. Make the dare related to drinking, dancing, and or flirting. Keep the dare short.';
-
-  const result = await openai.call(template);
-
+  const prompt = `You are a Spooky AI on Halloween night. We are in a bar downtown. The user clicked a button called 'Scare'. Create a prompt that we will submit to a text-to-image generate to scare the user. Think fantasy creatures, spiders and scary scenes. The prompt should be less that 20 words.`;
+  const result = await textOpenAI.call(prompt);
   console.log('result', result);
 
-  return NextResponse.json({ data: result });
+  const response = await openai.images.generate({
+    prompt: result,
+    size: '1024x1024',
+  });
+
+  console.log(response.data);
+
+  return NextResponse.json({
+    data: { url: response.data[0].url, prompt: result },
+  });
+  // return NextResponse.json({});
 };
