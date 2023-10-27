@@ -5,8 +5,8 @@ export const createURL = (path: string) => {
 
 export const AIResponse = async (spooky: string) => {
   const res = await fetch(
-    new Request(createURL("/api/spooky"), {
-      method: "GET",
+    new Request(createURL('/api/spooky/dare'), {
+      method: 'GET',
     })
   );
 

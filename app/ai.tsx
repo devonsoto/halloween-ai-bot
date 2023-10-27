@@ -1,31 +1,34 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import DareScare from "./DareScare";
-// import { AIResponse } from "./aiResponse";
-import { AIResponse } from "./api";
+import { useState } from 'react';
+import DareScare from './DareScare';
+import { AIResponse } from './api';
 
 export default function AI() {
-  const [spooky, setSpooky] = useState("");
+  const [spooky, setSpooky] = useState('');
+  const [res, setRes] = useState('');
 
   console.log(spooky);
 
   const handleClick = async (spooky: string) => {
     setSpooky(spooky);
 
-    const data = await AIResponse(spooky);
-
-    console.log(data);
+    if (spooky === 'dare') {
+      const data = await AIResponse(spooky);
+      setRes(data);
+    } else if (spooky === 'scare') {
+      const data = await AIResponse(spooky);
+      setRes(data);
+    } else {
+      const data = await AIResponse(spooky);
+      setRes(data);
+    }
   };
-
-  if (spooky !== "") {
-  }
 
   return (
     <div>
       <DareScare setSelectedOption={handleClick} />
-      {/* <AIResponse option={spooky} /> */}
-      <div className="text-green">{spooky}</div>
+      <div className='mt-9 text-center'>{res}</div>
     </div>
   );
 }
