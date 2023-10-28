@@ -42,7 +42,8 @@ export const MysteryResponse = async (spooky: string) => {
     new Request(createURL('/api/spooky/mystery'), {
       method: 'GET',
       next: { revalidate: 1 },
-    })
+    }),
+    { next: { revalidate: 1 } }
   );
 
   if (res.ok) {
