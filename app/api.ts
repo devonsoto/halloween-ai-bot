@@ -7,6 +7,8 @@ export const AIResponse = async (spooky: string) => {
   const res = await fetch(
     new Request(createURL('/api/spooky/dare'), {
       method: 'GET',
+      next: { revalidate: 0.5 },
+      cache: 'no-store',
     }),
     { next: { revalidate: 1 }, cache: 'no-store' }
   );
