@@ -13,11 +13,14 @@ export const AIResponse = async (spooky: string) => {
   if (res.ok) {
     const data = await res.json();
     return data.data; // since we are always sending back an object with a data key
+  } else {
+    window.alert(
+      'Spooky ChatGPT is down rn. My B we wish you a good night 👻 ! '
+    );
   }
 };
 
 export const ScareResponse = async (spooky: string) => {
-  console.log('scare');
   const res = await fetch(
     new Request(createURL('/api/spooky/scare'), {
       method: 'POST',
@@ -27,6 +30,10 @@ export const ScareResponse = async (spooky: string) => {
   if (res.ok) {
     const data = await res.json();
     return data.data; // since we are always sending back an object with a data key
+  } else {
+    window.alert(
+      'Spooky ChatGPT is down rn. My B we wish you a good night 👻 ! '
+    );
   }
 };
 
@@ -40,5 +47,9 @@ export const MysteryResponse = async (spooky: string) => {
   if (res.ok) {
     const data = await res.json();
     return data.data; // since we are always sending back an object with a data key
+  } else {
+    window.alert(
+      'Spooky ChatGPT is down rn. My B we wish you a good night 👻 ! '
+    );
   }
 };

@@ -22,8 +22,6 @@ export default function AI() {
   const [isLoading, setIsLoading] = useState(false);
   const [mystery, setMystery] = useState<MysteryData>();
 
-  console.log(spooky);
-
   const handleClick = async (spooky: string) => {
     setSpooky(spooky);
 
@@ -49,9 +47,6 @@ export default function AI() {
     }
   };
 
-  console.log('imageData ', imageData?.url);
-  console.log('mystery ', mystery);
-
   return (
     <>
       <DareScare setSelectedOption={handleClick} />
@@ -72,7 +67,7 @@ export default function AI() {
       )}
       {!isLoading && imageData && spooky === 'Scare' && (
         <>
-          <Image alt='generated photo' className='mb-6' src={imageData?.url} />
+          <img alt='generated photo' className='mb-6' src={imageData?.url} />
           <p>Text used to generate image: {imageData?.prompt}</p>
         </>
       )}

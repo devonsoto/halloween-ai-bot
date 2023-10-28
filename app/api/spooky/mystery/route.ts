@@ -47,12 +47,7 @@ export const GET = async (req: Request, res: Response) => {
 
   const randomPrompt: string = mysteryOptions[randomCategory];
 
-  console.log('randomCategory', randomCategory);
-  console.log('randomPrompt', randomPrompt);
-
   const result = await openai.call(randomPrompt);
-
-  console.log('result', result);
 
   return NextResponse.json({ data: { result, category: randomCategory } });
 };
