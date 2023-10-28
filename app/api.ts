@@ -41,6 +41,7 @@ export const MysteryResponse = async (spooky: string) => {
   const res = await fetch(
     new Request(createURL('/api/spooky/mystery'), {
       method: 'GET',
+      cache: 'no-cache',
     })
   );
 

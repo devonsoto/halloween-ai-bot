@@ -22,7 +22,7 @@ export const GET = async (req: Request, res: Response) => {
       'Create a compliment that is Halloween-themed and would make someone feel good.',
 
     'Spooky Fact':
-      'Share an interesting and spooky fact about Halloween that not many people may know.',
+      'Share an interesting and spooky fact about Halloween that not many people may know. Keep the response short (one-two sentences).',
 
     'Pickup Line':
       'Come up with a cheeky Halloween-themed pickup line suitable for a fun night out. Have it end with. Use this pickup line on someone..',
@@ -31,7 +31,7 @@ export const GET = async (req: Request, res: Response) => {
       'Suggest a confession prompt that someone could use at a Halloween party to get to know the people around them better. Make it Halloween or spooky themed.',
 
     'Dance Dare':
-      'Dare the user to perform a Halloween-themed dance. Make it fun and exciting!',
+      'Dare the user to perform a Halloween-themed dance. Make it fun and exciting! Keep the response short (one-two sentences).',
 
     "You're Ugly":
       'In a playful and not-mean-spirited way, jest that the user looks so scary they could be a Halloween decoration. Then compliment them to soften the jest.',
