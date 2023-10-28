@@ -14,8 +14,10 @@ export const POST = async (req: Request, res: Response) => {
 
   const response = await openai.images.generate({
     prompt: result,
-    size: '1024x1024',
+    size: '256x256',
   });
+
+  console.log(response.data[0].url);
 
   return NextResponse.json({
     data: { url: response.data[0].url, prompt: result },
