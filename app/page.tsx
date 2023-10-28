@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <main
         id='main'
-        className='flex min-h-screen flex-col items-center p-24 flex-grow'
+        className='flex h-[calc(100%-120px)] flex-col items-center p-24 flex-grow pb-32'
       >
         <Title />
 
@@ -19,8 +19,8 @@ export default function Home() {
         <AI />
 
         {/* <Textbox /> */}
-        <Footer />
       </main>
+      <Footer />
     </>
   );
 }

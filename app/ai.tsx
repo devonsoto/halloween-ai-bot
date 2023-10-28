@@ -2,11 +2,17 @@
 
 import { useState } from 'react';
 import DareScare from './DareScare';
-import { AIResponse, ScareResponse } from './api';
+import { AIResponse, MysteryResponse, ScareResponse } from './api';
+import Image from 'next/image';
 
 interface ImageData {
   url: string;
   prompt: string;
+}
+
+interface MysteryData {
+  result: string;
+  category: string;
 }
 
 export default function AI() {
@@ -14,6 +20,7 @@ export default function AI() {
   const [res, setRes] = useState('');
   const [imageData, setImageData] = useState<ImageData>();
   const [isLoading, setIsLoading] = useState(false);
+  const [mystery, setMystery] = useState<MysteryData>();
 
   console.log(spooky);
 
@@ -33,15 +40,20 @@ export default function AI() {
         setIsLoading(false);
       }
     } else {
-      const data = await AIResponse(spooky);
-      setRes(data);
+      setIsLoading(true);
+      const data = await MysteryResponse(spooky);
+      if (data) {
+        setIsLoading(false);
+        setMystery(data);
+      }
     }
   };
 
   console.log('imageData ', imageData?.url);
+  console.log('mystery ', mystery);
 
   return (
-    <div>
+    <>
       <DareScare setSelectedOption={handleClick} />
       {isLoading && (
         <div className='mt-9 text-center'>
@@ -49,13 +61,21 @@ export default function AI() {
         </div>
       )}
 
-      {!isLoading && res && <div className='mt-9 text-center'>{res}</div>}
-      {!isLoading && imageData && (
+      {!isLoading && res && spooky === 'Dare' && (
+        <div className='mt-9 text-center'>{res}</div>
+      )}
+      {!isLoading && mystery && spooky === 'Mystery' && (
         <>
-          <img className='mb-6' src={imageData?.url} />
+          <div className='mt-9 mb-2 text-center'>{mystery.category}</div>
+          <div className='text-center'>{mystery?.result}</div>
+        </>
+      )}
+      {!isLoading && imageData && spooky === 'Scare' && (
+        <>
+          <Image alt='generated photo' className='mb-6' src={imageData?.url} />
           <p>Text used to generate image: {imageData?.prompt}</p>
         </>
       )}
-    </div>
+    </>
   );
 }

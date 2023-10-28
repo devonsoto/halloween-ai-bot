@@ -29,3 +29,16 @@ export const ScareResponse = async (spooky: string) => {
     return data.data; // since we are always sending back an object with a data key
   }
 };
+
+export const MysteryResponse = async (spooky: string) => {
+  const res = await fetch(
+    new Request(createURL('/api/spooky/mystery'), {
+      method: 'GET',
+    })
+  );
+
+  if (res.ok) {
+    const data = await res.json();
+    return data.data; // since we are always sending back an object with a data key
+  }
+};
