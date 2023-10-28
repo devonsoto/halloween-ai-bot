@@ -7,7 +7,8 @@ export const AIResponse = async (spooky: string) => {
   const res = await fetch(
     new Request(createURL('/api/spooky/dare'), {
       method: 'GET',
-    })
+    }),
+    { next: { revalidate: 1 }, cache: 'no-store' }
   );
 
   if (res.ok) {
@@ -43,7 +44,7 @@ export const MysteryResponse = async (spooky: string) => {
       method: 'GET',
       next: { revalidate: 1 },
     }),
-    { next: { revalidate: 1 } }
+    { next: { revalidate: 1 }, cache: 'no-cache' }
   );
 
   if (res.ok) {
