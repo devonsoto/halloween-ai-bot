@@ -2,8 +2,10 @@
 
 ## Description
 
-SpookyChatGPT is a Halloween-themed web application designed to engage users with a series of fun and spooky interactive experiences. The application leverages the OpenAI API to generate dares, scares, and mysterious encounters that users can enjoy during their Halloween festivities, especially in a social setting. This was my Halloween costume. I had generate a QR code and taped it on my t-shirt so my Halloween could be interactive !
+SpookyChatGPT is a Halloween-themed web application designed to engage users with a series of fun and spooky interactive experiences. The application leverages the OpenAI API to generate dares, scares, and mysterious encounters that users can enjoy during their Halloween festivities, especially in a social setting. This was my Halloween costume. I generated a QR code and taped it on my t-shirt so my Halloween could be interactive !
 I am not sure how long it will be up for. It was a quick, fun, and cheap costume to do. It just has three buttons that calls OPENAI's api. 🤷🏼‍♂️. What can I say I got a lot of scans !
+
+https://spooky-bot-ai.vercel.app/
 
 ## Features
 
